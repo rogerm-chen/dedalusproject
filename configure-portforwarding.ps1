@@ -1,10 +1,11 @@
+
 $proxyinfos=$proxyinfosjson |ConvertFrom-Json
 $proxyinfos=$proxyinfos.proxyinfos.value
 
 function set-proxy {
     param(
 		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "proxy informations")]
-		[hashtable[]]$proxyinfos
+		[array]$proxyinfos
     )
 	
 	foreach ($proxyinfo in $proxyinfos){
@@ -18,7 +19,7 @@ function set-proxy {
 function set-firewall {
     param(
 		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "proxy informations")]
-		[hashtable[]]$proxyinfos
+		[array]$proxyinfos
     )
 	
 	foreach ($proxyinfo in $proxyinfos){
