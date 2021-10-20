@@ -1,10 +1,15 @@
+param(
+		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, Mandatory = $true,HelpMessage = "proxy informations")]
+		$proxyinfosjson
+    )
+
 
 $proxyinfos=$proxyinfosjson |ConvertFrom-Json
 $proxyinfos=$proxyinfos.proxyinfos.value
 
 function set-proxy {
     param(
-		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "proxy informations")]
+		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True)]
 		[array]$proxyinfos
     )
 	
@@ -18,7 +23,7 @@ function set-proxy {
 
 function set-firewall {
     param(
-		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, HelpMessage = "proxy informations")]
+		[parameter(ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True)]
 		[array]$proxyinfos
     )
 	
