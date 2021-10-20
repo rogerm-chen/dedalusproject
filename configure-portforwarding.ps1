@@ -1,3 +1,5 @@
+$proxyinfos=$proxyinfosjson |ConvertFrom-Json
+$proxyinfos=$proxyinfos.proxyinfos.value
 
 function set-proxy {
     param(
@@ -26,7 +28,6 @@ function set-firewall {
 	}
    
 }
-
 
 set-proxy $proxyinfos
 set-firewall $proxyinfos
